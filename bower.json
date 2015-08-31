@@ -1,6 +1,6 @@
 {
   "name": "bce-trevor-js",
-  "version": "0.5.0-beta3",
+  "version": "1.0.1",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -9,7 +9,9 @@
     "spec",
     "examples",
     "website",
-    "BrowserRunner.html"
+    "examples-component",
+    "BrowserRunner.html",
+    "docs"
   ],
   "dependencies": {
     "es5-shim": "~v4.0.3",
