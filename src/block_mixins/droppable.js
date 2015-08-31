@@ -2,7 +2,7 @@
 
 /* Adds drop functionaltiy to this block */
 
-var _ = require('../lodash');
+var _ = require('../underscore');
 var $ = require('jquery');
 var config = require('../config');
 var utils = require('../utils');
@@ -20,8 +20,8 @@ module.exports = {
 
     this.drop_options = Object.assign({}, config.defaults.Block.drop_options, this.drop_options);
 
-    var drop_html = $(_.template(this.drop_options.html,
-                                 { block: this, _: _ }));
+    var template = _.template(this.drop_options.html);
+    var drop_html = $(template({ block: this, _: _ }));
 
     this.$editor.hide();
     this.$inputs.append(drop_html);

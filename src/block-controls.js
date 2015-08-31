@@ -6,7 +6,7 @@
  * Gives an interface for adding new Sir Trevor blocks.
  */
 
-var _ = require('./lodash');
+var _ = require('./underscore');
 var $ = require('jquery');
 
 var Blocks = require('./blocks');
@@ -60,7 +60,9 @@ Object.assign(BlockControls.prototype, require('./function-bind'), require('./me
 
   hide: function() {
     this.removeCurrentContainer();
-    this.$el.removeClass('st-block-controls--active');
+    this.$el.addClass('fadeOut').delay(200).queue(function(){
+      $(this).removeClass('fadeOut st-block-controls--active').dequeue();
+    });
 
     EventBus.trigger('block:controls:hidden');
   },

@@ -7,7 +7,7 @@
  * Renders with all available options for the editor instance
  */
 
-var _ = require('./lodash');
+var _ = require('./underscore');
 var $ = require('jquery');
 
 var config = require('./config');

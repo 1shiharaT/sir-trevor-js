@@ -9,8 +9,7 @@
 .st-block input[type="text"],
 .st-block textarea {
   font-size: inherit;
-  margin: 0;
-  padding: 0.3em 0;
+  margin: 0; padding: 0.3em 0;
 }
 
 // Focus / Active styles
@@ -37,4 +36,27 @@
   color: #42474b;
   border: 0.1em solid #d4d4d4;
   padding:.6em;
+}
+
+.st-list-block__list{
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.st-block--heading-type{
+  visibility: hidden;
+  opacity: 0;
+  transition: all ease .2s;
+}
+
+.st-block__inner:hover .st-block--heading-type{
+  visibility: visible;
+  opacity: 1;
+}
+
+.st-block__inner textarea{
+  width: 100%;
+  border: none;
+  -webkit-appearance: none;
+  box-shadow: none;
 }

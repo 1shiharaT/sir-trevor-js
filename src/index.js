@@ -1,10 +1,12 @@
 "use strict";
 
-var _ = require('./lodash');
+var _ = require('./underscore');
+
 
 // ES6 shims
 require('object.assign').shim();
 require('array.prototype.find');
+
 require('./vendor/array-includes'); // shims ES7 Array.prototype.includes
 
 require('./helpers/event'); // extends jQuery itself

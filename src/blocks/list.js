@@ -1,5 +1,7 @@
 "use strict";
 
+var _ = require('../underscore');
+
 var Block = require('../block');
 var stToHTML = require('../to-html');
 
@@ -55,7 +57,7 @@ module.exports = Block.extend({
   icon_name: 'list',
   multi_editable: true,
 
-  scribeOptions: { 
+  scribeOptions: {
     allowBlockElements: false,
     tags: {
       p: false

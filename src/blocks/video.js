@@ -1,6 +1,6 @@
 "use strict";
 
-var _ = require('../lodash');
+var _ = require('../underscore');
 var utils = require('../utils');
 var Block = require('../block');
 
@@ -18,7 +18,7 @@ module.exports = Block.extend({
     }
   },
 
-  type: 'video',
+  type: 'Video',
   title: function() { return i18n.t('blocks:video:title'); },
 
   droppable: true,
@@ -31,15 +31,23 @@ module.exports = Block.extend({
 
     var source = this.providers[data.source];
 
-    var protocol = window.location.protocol === "file:" ? 
-      "http:" : window.location.protocol;
+
+    if ( typeof window.location.protocol !== 'undefined' ){
+      var protocol = window.location.protocol === "file:" ?
+        "http:" : window.location.protocol;
+    } else {
+      var protocol = "http:";
+    }
+
 
     var aspectRatioClass = source.square ?
       'with-square-media' : 'with-sixteen-by-nine-media';
 
+    var template = _.template(source.html);
+
     this.$editor
       .addClass('st-block__editor--' + aspectRatioClass)
-      .html(_.template(source.html, {
+      .html(template({
         protocol: protocol,
         remote_id: data.remote_id,
         width: this.$editor.width() // for videos like vine
@@ -63,7 +71,7 @@ module.exports = Block.extend({
   handleDropPaste: function(url){
     if (!utils.isURI(url)) { return; }
 
-    for(var key in this.providers) { 
+    for(var key in this.providers) {
       if (!this.providers.hasOwnProperty(key)) { continue; }
       this.setAndLoadData(
         this.matchVideoProvider(this.providers[key], key, url)

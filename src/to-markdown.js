@@ -1,6 +1,6 @@
 "use strict";
 
-var _ = require('./lodash');
+var _ = require('./underscore');
 var utils = require('./utils');
 
 module.exports = function(content, type) {

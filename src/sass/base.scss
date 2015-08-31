@@ -1,6 +1,57 @@
 .st-outer {
   font-size: 16px;
+}
+
+.st-block img{
+  max-width: 100%;
+  height: auto;
+}
+
+#block-content-editor-container{
+  padding: 2em;
   position: relative;
+  z-index: 10;
+}
+
+
+@mixin sir-trevor-icons() {
+  font-family: 'ST-Icons';
+  speak: none;
+  /* Enable Ligatures */
+  -webkit-font-feature-settings:"liga","dlig";-moz-font-feature-settings:"liga=1, dlig=1";-moz-font-feature-settings:"liga","dlig";-ms-font-feature-settings:"liga","dlig";-o-font-feature-settings:"liga","dlig";
+  font-feature-settings:"liga","dlig";
+  text-rendering:optimizeLegibility;
+    font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ST-Icons
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before,
+[data-icon-after]:after {
+  @include sir-trevor-icons;
+  content: attr(data-icon);
+}
+
+[data-icon-after]:after {
+  content: attr(data-icon-after);
+}
+
+.st-icon {
+  @include sir-trevor-icons;
+  cursor:pointer;
+}
+.st-icon--add:after{
+  opacity: 0;
+}
+.st-icon--add:hover:after{
+  opacity: 1;
+}
+[data-icon=bin]:hover:before {
+  content: "binopen";
 }
 
 .st-block__inner {
@@ -20,4 +71,188 @@
 .st-spinner {
   position: absolute!important;
   left: 50%; top: 50%;
+}
+@-webkit-keyframes fadeInBlock {
+  0% {
+    background-color: #fff;
+    opacity:1;
+  }
+  10% {
+    background-color: #EFF3C5;
+  }
+  30% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #EFF3C5;
+  }
+  70% {
+    background-color: #fff;
+  }
+}
+
+
+@keyframes fadeInBlock {
+  0% {
+    background-color: #fff;
+    opacity:1;
+  }
+  10% {
+    background-color: #EFF3C5;
+  }
+  30% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #EFF3C5;
+  }
+  70% {
+    background-color: #fff;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+
+  }
+
+  100% {
+    opacity: 1;
+
+  }
+}
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0) scale3d(.5,.5,.5);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0) scale3d(.5,.5,.5);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes scaleOut {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0) scale3d(.5,.5,.5);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0) scale3d(.5,.5,.5);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+//.st-drag-over{
+//  -webkit-animation-duration: .4s;
+//  animation-duration: .4s;
+//  -webkit-animation-fill-mode: both;
+//  animation-fill-mode: both;
+//  -webkit-animation-name: fadeIn;
+//  animation-name: fadeIn;
+//  animation-iteration-count: infinite;
+//}
+
+
+.ripple{
+  overflow:hidden;
+}
+
+.ripple-effect{
+  position: absolute;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: white;
+  animation: ripple-animation 2s;
+}
+
+
+@keyframes ripple-animation {
+  from {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(100);
+    opacity: 0;
+  }
+}
+
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1,1,1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0) scale3d(.5,.5,.5);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1,1,1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0) scale3d(.5,.5,.5);
+  }
+}
+
+.fadeOut {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
 }

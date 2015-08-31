@@ -5,7 +5,7 @@
 *   Generic Upload implementation that can be extended for blocks
 */
 
-var _ = require('../lodash');
+var _ = require('../underscore');
 var $ = require('jquery');
 var config = require('../config');
 var utils = require('../utils');
@@ -42,6 +42,7 @@ module.exports = function(block, file, success, error) {
       error.call(block, status);
     }
   };
+
 
   var url = block.uploadUrl || config.defaults.uploadUrl;
 

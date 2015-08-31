@@ -1,16 +1,37 @@
+
 .st-block {
   padding:0;
   position: relative;
 }
 
+.st-block__inner:hover:before{
+  display: block;
+  position: absolute;
+  top: -2.2em;
+  left: -0.2em;
+  width: 12em;
+  padding: 0.5em 1em 0.5em 1em;
+  background: rgba(23, 83, 103, 0.8);
+  color: #fff;
+  font-size: 80%;
+  line-height: 1.2em;
+  content: attr(title);
+  z-index: -1;
+}
+
 .st-block__inner {
-  padding: 1.875em 1.875em 2.8em;
-  border: $border-size $border-style #fff;
+  padding: 1.275em 1.275em 2.8em;
+  border: 2px solid transparent;
   position: relative;
+  transition: all ease .2s;
+}
+div[data-type="Columns"] .st-block__inner{
+  padding: 1.275em 1.275em 2.8em;
 }
 
 .st-block__inner:hover {
-  border-color: $accent-color;
+  border: 2px solid $accent-color;
+  //outline-offset: 1.275em;
 }
 
 .st-block--with-errors .st-block__inner,
@@ -21,47 +42,73 @@
 .st-block--with-plus:after,
 .st-icon--add:after {
   display: block;
-  position: relative; z-index: 1;
+  visibility: hidden;
+
+  position: relative;
+  z-index: 1;
   bottom: 0;
+  cursor: pointer;
+}
+
+.st-icon--add:hover:after{
+  visibility: visible;
+  -webkit-animation-duration: .4s;
+  animation-duration: .7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
 .st--block-limit-reached .st-block--with-plus:after,
 .st--block-limit-reached .st-icon--add:after {
-  display: none;
+  visibility: hidden;
 }
 
 .st-icon--add:after {
+  width: 100%;
+  display: block;
+  visibility: hidden;
   text-align: center;
-  font-size: 1.875em;
+  font-size: 1.275em;
   padding: 0.3em 0;
   line-height: 0.9;
   border-radius: 0.2em;
+  width: 30px;
+  height: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  color: #23282d;
+  margin-top: 5px;
+  box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0, 0, 0, 0.08);
 }
 
 .st-block--with-plus:after {
   background: $blocks-control-bg-color;
   color: $accent-color;
-  cursor: pointer;
 }
 
 .with-st-controls:after,
 .with-st-controls:before {
-  display:none
+  //visibility: hidden;
+  opacity: 1;
 }
 
 .st-block.st-drag-over:after,
 .st-block.st-drag-over:last-child:after,
 .st-block-controls__top.st-drag-over:before {
   font-family:inherit;
-  content: "Drop block here";
+  content: "ここにドラック&ドロップ";
   text-align: center;
   padding: 0.7em 0;
   font-size: 1.125em;
   font-weight: 700;
-  border: $border-size dashed #d4d4d4;
+  border: 2px dashed #d4d4d4;
   background: transparent;
   color: #d4d4d4;
-  margin: 3px 0;
+  width: 100%;
 }
 
 .st-text-block {
@@ -73,7 +120,7 @@
 .st-text-block--heading {
   line-height: 1.1;
   font-size: 2.2em;
-  min-height: 1em;
+  min-height: auto;
   font-weight: 700;
 }
 
@@ -81,16 +128,11 @@ ul.st-text-block {
   margin-left: 1.875em;
 }
 
-.st-list-block__editor {
-  display: inline;
-  width: 100%;
-}
-
 .st-block__inputs {
   padding: 1.6em 0 1em;
   border-radius: 0.2em;
   background: $blocks-control-bg-color;
-  border-top: $border-size $border-style transparent;
+  border-top: 0.125em solid transparent;
 }
 
 .st-block__dropzone .st-icon {
@@ -137,7 +179,6 @@ ul.st-text-block {
 
 .st-block__upload-container:hover .st-upload-btn {
   background:$accent-color;
-  color: #fff;
 }
 
 .st-block__editor--with-square-media {
@@ -158,15 +199,13 @@ ul.st-text-block {
 .st-block__editor--with-square-media iframe,
 .st-block__editor--with-sixteen-by-nine-media video,
 .st-block__editor--with-sixteen-by-nine-media iframe {
-  height: 100%;
-  width: 100%;
+  height: 100%; width: 100%;
   left: 0; top: 0;
   position: absolute;
 }
 
 .st-block__editor img {
-  width: 100%;
-  height: auto;
+  width: 100%; height: auto;
 }
 
 .st-block__upload-container {
@@ -190,9 +229,8 @@ ul.st-text-block {
   position: relative;
   top: -1.9em; left: -1.9em;
   padding: .3em .5em;
-  border: $default-border;
-  border-left: none;
-  border-top: none;
+  border: 2px solid $accent-color;
+  border-left: none; border-top: none;
   max-width: 80%;
 }
 
@@ -210,4 +248,21 @@ ul.st-text-block {
 
 .st-msg--error {
   color: $error-color;
+}
+
+.st-item-ready .st-block__inner{
+  -webkit-animation-duration: .8s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInBlock;
+  animation-name: fadeInBlock;
+}
+
+.st-outer *{
+  box-sizing: border-box;
+  -webkit-transform-style: preserve-3d;
+  backface-visibility: hidden;
 }

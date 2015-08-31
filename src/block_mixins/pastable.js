@@ -1,6 +1,6 @@
 "use strict";
 
-var _ = require('../lodash');
+var _ = require('../underscore');
 var $ = require('jquery');
 var config = require('../config');
 var utils = require('../utils');

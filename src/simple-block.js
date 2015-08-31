@@ -1,15 +1,16 @@
 "use strict";
 
-var _ = require('./lodash');
+var _ = require('./underscore');
 var utils = require('./utils');
 var $ = require('jquery');
 
 var BlockReorder = require('./block-reorder');
 
-var SimpleBlock = function(data, instance_id, mediator, options) {
+var SimpleBlock = function(data, editorInstance, mediator, options) {
   this.createStore(data);
   this.blockID = _.uniqueId('st-block-');
-  this.instanceID = instance_id;
+  this.editorInstance = editorInstance; // save instance itself
+  this.instanceID = editorInstance.ID; // save instance ID for backward compatibility
   this.mediator = mediator;
   this.options = options || {};
 
@@ -64,11 +65,14 @@ Object.assign(SimpleBlock.prototype, require('./function-bind'), require('./even
   _setBlockInner : function() {
     var editor_html = _.result(this, 'editorHTML');
 
+
     this.$el.append(
       this.block_template({ editor_html: editor_html })
     );
 
     this.$inner = this.$el.find('.st-block__inner');
+    var tooltiptitle = this.title() + i18n.t('blocks:tooltiptitle:text');
+    this.$inner.attr('title', tooltiptitle);
     this.$inner.bind('click mouseover', function(e){ e.stopPropagation(); });
   },
 

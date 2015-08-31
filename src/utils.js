@@ -1,7 +1,7 @@
 "use strict";
 
 var $ = require('jquery');
-var _ = require('./lodash');
+var _ = require('./underscore');
 var config = require('./config');
 
 var urlRegex = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;

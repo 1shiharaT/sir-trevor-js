@@ -1,49 +1,142 @@
 // Block Control
 
+.st-block-controls__top {
+  position: relative;
+}
+
 .st--block-limit-reached .st-block-controls__top {
   display: none;
+  position: relative;
 }
 
 .st-block-controls__top:before {
   width: 100%;
   display: block;
+  position: relative;
+  visibility: hidden;
   text-align: center;
-  font-size: 1.875em;
+  font-size: 1.275em;
   padding: 0.3em 0;
   line-height: 0.9;
   border-radius: 0.2em;
+  width: 30px;
+  height: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  color: #23282d;
+  margin-top: 5px;
+  box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.columns .st-block-controls__top:before {
+  visibility: hidden;
+}
+
+.st-block__inner:hover .columns .st-block-controls__top {
+  visibility: visible;
+  display: block;
+  -webkit-animation-duration: .4s;
+  animation-duration: .4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
 .st-block-controls__top:hover:before {
   color: $accent-color;
+  visibility: visible;
   background: $blocks-control-bg-color;
-  cursor: pointer;
+  -webkit-animation-duration: .4s;
+  animation-duration: .4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
 .st-block-controls {
-  background-color: $blocks-control-bg-color;
+  //background-color: rgba( $blocks-control-bg-color, 0.8);
+
   display: none;
   border-radius: 0.2em;
   color: $base-ui-color;
-  width: 100%;
+
   text-align: center;
-  padding: 1.2em 0;
+  padding: 0.3em 0;
+  position: absolute;
+  bottom: 50px;
+  z-index: 10000;
+  //box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.4);
+  background: rgba(#175367, 0.8);
+  display: none;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.st-block-controls:after{
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: rgba(23, 83, 103, 0.8);
+  border-width: 10px;
+  margin-left: -10px;
+  z-index: 100;
+}
+
+.st-block-controls a {
+  color: #333;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: " ";
+}
+
+.clearfix:after {
+  clear: both;
 }
 
 .st-block-controls--active {
-  display:block;
+  display: inline-block;
+  -webkit-animation-duration: .4s;
+  animation-duration: .4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
 }
 
 .st-block-control {
-  font-size: 1.125em;
+  font-size: 0.8em;
   display: inline-block;
   cursor: pointer;
-  margin: 0 1em 0 0;
+  margin: 5px;
+  width: 60px;
+  position: relative;
+  padding-top: 6px;
+  padding-bottom: 5px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  border: 1px solid #e8e8e8;
 }
 
 .st-block-control .st-icon {
   font-size: 2.25em;
-  margin: 0 0 .2em 0;
+  margin: 0 0 .05em 0;
   display: block;
 }
 

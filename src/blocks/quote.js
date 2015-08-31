@@ -4,7 +4,7 @@
   Block Quote
 */
 
-var _ = require('../lodash');
+var _ = require('../underscore');
 
 var Block = require('../block');
 var stToHTML = require('../to-html');

@@ -204,7 +204,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['test', 'sass', 'webpack', 'uglify']);
   grunt.registerTask('test', ['jshint', 'karma', 'webpack:test', 'sass:test', 'connect', 'jasmine_nodejs']);
-  grunt.registerTask('dev', ['sass', 'webpack:debug']);
+  grunt.registerTask('dev', ['sass', 'webpack:dist']);
   grunt.registerTask('jasmine-browser', ['server', 'watch']);
 
 };

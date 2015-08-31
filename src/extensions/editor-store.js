@@ -6,7 +6,7 @@
  * We can easily extend this and store it on some server or something
  */
 
-var _ = require('../lodash');
+var _ = require('../underscore');
 var utils = require('../utils');
 
 

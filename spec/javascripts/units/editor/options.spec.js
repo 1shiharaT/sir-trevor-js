@@ -45,4 +45,5 @@ describe("Editor:Editor with options", function(){
     });
 
   });
+
 });

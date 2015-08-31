@@ -1,12 +1,13 @@
 "use strict";
 
-var _ = require('lodash');
+var _ = require('underscore');
 var Scribe = require('scribe-editor');
 var config = require('./config');
 
 var scribePluginFormatterPlainTextConvertNewLinesToHTML = require('scribe-plugin-formatter-plain-text-convert-new-lines-to-html');
 var scribePluginLinkPromptCommand = require('scribe-plugin-link-prompt-command');
 var scribePluginSanitizer = require('scribe-plugin-sanitizer');
+
 
 var sanitizeDefaults = {
   p: true,
@@ -33,6 +34,7 @@ module.exports = {
     if (_.isObject(scribeOptions)) {
       scribeConfig = Object.assign(scribeConfig, scribeOptions);
     }
+
 
     var scribe = new Scribe(el, scribeConfig);
 

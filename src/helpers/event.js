@@ -20,6 +20,7 @@ function dragOver(e) {
 }
 
 function dragLeave(e) {
+
   $(e.currentTarget).removeClass('st-drag-over');
   e.preventDefault();
 }
